@@ -1,1 +1,2 @@
-
+tasks:
+  command: npm i react
